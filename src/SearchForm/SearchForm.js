@@ -10,7 +10,7 @@ const SearchForm = (props) => {
                     autoComplete="off"
                     name="searchValue" 
                     placeholder="search for images" />
-                <button>Search</button>
+                <button class="waves-effect waves-light btn">Search</button>
             </form>       
         </div>
     )
