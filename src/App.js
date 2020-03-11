@@ -34,7 +34,7 @@ class App extends React.Component {
         <SearchForm handleGetRequest={this.handleGetRequest} />
 
         { this.state.images.length > 0  && this.state.images.map((image) => {
-          return <p>{image.tags}</p>
+            return <p key={image.id}>{image.tags}</p>
         })}
 
       </div>
