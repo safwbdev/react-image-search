@@ -1,32 +1,43 @@
 import React from 'react';
 import './App.css';
+import SearchForm from './SearchForm/SearchForm'
 
-const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=yellow+flowers&image_type=photo&pretty=true`
 
 class App extends React.Component {
-
+  
   state = {
     images:[]
   }
-
-  handleGetRequest = async () => {
-
+  
+  handleGetRequest = async (e) => {
+    
+    e.preventDefault()
+    
+    const searchPhrase = e.target.elements.searchValue.value
+    
+    const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${searchPhrase}&image_type=photo&pretty=true`
+    
     const request = await fetch(url)
 
     const response = await request.json()
 
     this.setState({ images: response.hits })
 
-    console.log(this.state.images)
-  }
+    console.log(searchPhrase)
 
-  componentDidMount() {
-    this.handleGetRequest();
+    console.log(this.state.images)
   }
 
   render() {
     return (
-      <div>App component</div>
+      <div>
+        <SearchForm handleGetRequest={this.handleGetRequest} />
+
+        { this.state.images.length > 0  && this.state.images.map((image) => {
+          return <p>{image.tags}</p>
+        })}
+
+      </div>
     )
   }
 }
