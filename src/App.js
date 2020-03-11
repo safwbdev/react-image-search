@@ -3,7 +3,6 @@ import './App.css';
 import SearchForm from './SearchForm/SearchForm'
 import ImageList from './ImageList/ImageList'
 
-const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component {
   
@@ -17,7 +16,7 @@ class App extends React.Component {
     
     const searchPhrase = e.target.elements.searchValue.value
     
-    const url = `https://pixabay.com/api/?key=${API_KEY}&q=${searchPhrase}&image_type=photo&pretty=true`
+    const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${searchPhrase}&image_type=photo&pretty=true`
     
     const request = await fetch(url)
 
