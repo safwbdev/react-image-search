@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import SearchForm from './SearchForm/SearchForm'
+import ImageList from './ImageList/ImageList'
 
 
 class App extends React.Component {
@@ -33,9 +34,7 @@ class App extends React.Component {
       <div>
         <SearchForm handleGetRequest={this.handleGetRequest} />
 
-        { this.state.images.length > 0  && this.state.images.map((image) => {
-            return <p key={image.id}>{image.tags}</p>
-        })}
+        <ImageList images={this.state.images} />
 
       </div>
     )
