@@ -8,7 +8,7 @@ const ImageList= (props) => {
     return (
         <div className="row">
                 { props.images.length > 0 && props.images.map((image) => {
-                    return <div key={image.id} className="col-md-4" style={{ marginBottom:"2rem" }}>
+                    return <div key={image.id} className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 " style={{ marginBottom:"2rem" }}>
                                 <Link to={{
                                     pathname: `/image/${image.id}`,
                                     state: { image: image }

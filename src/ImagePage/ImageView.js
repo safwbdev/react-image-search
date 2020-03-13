@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react"
+
+import { Link } from "react-router-dom"
+
 import "./styles.css"
 
-const ImagePage = (props) => {
-
-    console.log(props.location.state.image)
+const ImageView = (props) => {
+  console.log(props.location.state.image)
   const { largeImageURL: image, user: owner, tags, pageURL } = props.location.state.image
   return (
     <div className="container">
@@ -26,7 +27,7 @@ const ImagePage = (props) => {
         </div>
       </div>
     </div>
-    )
+  )
 }
 
-export default ImagePage
+export default ImageView

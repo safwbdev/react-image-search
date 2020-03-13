@@ -1,7 +1,7 @@
 import React from "react"
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import App from './App'
-import ImagePage from "./ImagePage/ImagePage"
+import ImagePage from "./ImagePage/ImageView"
 
 const Router = () => {
     return (
