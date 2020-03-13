@@ -34,6 +34,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        {process.env.REACT_APP_API_KEY}
         <SearchForm handleGetRequest={this.handleGetRequest} />
         {
           this.state.error !== null ? <div className="col s12 error">{this.state.error}</div> : <ImageList images={this.state.images} />
