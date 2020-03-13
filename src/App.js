@@ -3,12 +3,12 @@ import './App.css';
 import SearchForm from './SearchForm/SearchForm'
 import ImageList from './ImageList/ImageList'
 
-const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component {
   
   state = {
-    images:[]
+    images:[],
+    error: null
   }
   
   handleGetRequest = async (e) => {
@@ -17,26 +17,27 @@ class App extends React.Component {
     
     const searchPhrase = e.target.elements.searchValue.value
     
-    const url = `https://pixabay.com/api/?key=${API_KEY}&q=${searchPhrase}&image_type=photo&pretty=true`
+    const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${searchPhrase}&image_type=photo&pretty=true`
     
     const request = await fetch(url)
 
     const response = await request.json()
 
-    this.setState({ images: response.hits })
+    if (!searchPhrase) {
+      this.setState({error:"Please Provide a Value"})
+    } else{
+      this.setState({ images: response.hits, error: null })
+    }
 
-    console.log(searchPhrase)
-
-    console.log(this.state.images)
   }
 
   render() {
     return (
-      <div className="container">
+      <div>
         <SearchForm handleGetRequest={this.handleGetRequest} />
-
-        <ImageList images={this.state.images} />
-
+        {
+          this.state.error !== null ? <div>{this.state.error}</div> : <ImageList images={this.state.images} />
+        }
       </div>
     )
   }

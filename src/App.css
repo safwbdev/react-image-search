@@ -28,6 +28,19 @@
   width: 100%;
 }
 
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-form input[type="text"]{
+  width: 80%;
+  margin-right: 15px;
+  color: #000000;
+}
+.search-form input[type="text"]::placeholder{
+  color: #000000;
+}
 .App-link {
   color: #61dafb;
 }
