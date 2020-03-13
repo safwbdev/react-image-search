@@ -1,17 +1,19 @@
 import React from 'react'
 
+import "./styles.css"
+
 const SearchForm = ({handleGetRequest}) => {
 
     return (
         <nav>
-            <div className="nav-wrapper container ">
-                <form onSubmit={handleGetRequest} className="search-form">
+            <div className="imageSearch">
+                <form onSubmit={handleGetRequest} className="imageSearch__form">
                     <input 
                         type="text" 
                         autoComplete="off"
                         name="searchValue" 
                         placeholder="search for images" />
-                    <button className="waves-effect waves-light btn">Search</button>
+                    <button>Search</button>
                 </form>       
             </div>
         </nav>

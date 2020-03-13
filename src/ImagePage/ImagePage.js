@@ -1,31 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./styles.css"
 
 const ImagePage = (props) => {
 
-    const { largeImageURL:image , tags, user: owner, pageURL } = props.location.state.image;
-
-    const tagArr = tags.split(',');
-    console.log(tagArr);
-
-    return (
-        <div className="row">
-            <div className="col s2">
+    console.log(props.location.state.image)
+  const { largeImageURL: image, user: owner, tags, pageURL } = props.location.state.image
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
+          <div className="imageView__container">
+            <img src={image} alt={tags} className="imageView__img img-responsive" />
+            <div className="imageView__copyright">
+              <p>&copy;pixabay</p>
+            </div>
+            <div className="imageView__text">
+              <h4>Credit: <span>{owner}</span></h4>
+              <h4>Download: <span><a target="_blank" href={pageURL }>{ pageURL.substring(0, 10) }...[VIEW FULL LINK]</a></span></h4>
+              <button className="active-recipe__button">
                 <Link to="/">Home</Link>
-                <p>&copy; pixabay</p>
-                <p>Credit: <span>{owner}</span></p>
-                <p>Tags:</p>
-                {
-                    tagArr.map((tag) => {
-                        return (<div>- {tag}</div>)
-                    })
-                }
-                <p><a target="_blank" href={pageURL}>Download</a></p>
+              </button>
             </div>
-            <div className="col s10">
-                <img src={image} alt={tags} className="fullWidth" />
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
     )
 }
 
