@@ -4,7 +4,7 @@ const SearchForm = ({handleGetRequest}) => {
 
     return (
         <nav>
-            <div class="nav-wrapper container ">
+            <div className="nav-wrapper container ">
                 <form onSubmit={handleGetRequest} className="search-form">
                     <input 
                         type="text" 

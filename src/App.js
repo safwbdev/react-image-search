@@ -36,7 +36,7 @@ class App extends React.Component {
       <div>
         <SearchForm handleGetRequest={this.handleGetRequest} />
         {
-          this.state.error !== null ? <div>{this.state.error}</div> : <ImageList images={this.state.images} />
+          this.state.error !== null ? <div className="col s12 error">{this.state.error}</div> : <ImageList images={this.state.images} />
         }
       </div>
     )
